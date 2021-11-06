@@ -1,0 +1,12 @@
+INSERT INTO user(user_name,email,phone_number,last_name,first_name,address,city) VALUES
+('Monkey','monkeyemail@hotmail.com','+41667205382','Charles','Peter','Lukerstrasse 18','Berlin');
+INSERT INTO user(user_name,email,phone_number,last_name,first_name,address,city) VALUES
+('Hans01912','Hans01912email@hotmail.com','+41667205234','Olaf','Hans','superstrasse ','Hamburg');
+INSERT INTO follower('user_name','email') VALUES 
+('Monkey','monkeyemail@hotmail.com');
+INSERT INTO follower('user_name','email') VALUES 
+('Hans01912','Hans01912email@hotmail.com');
+INSERT INTO post('user_id','post_text','picture','picture_description','picture_like','picture_comment') VALUES 
+('01202','Infoontestmessage','foot.jpeg','pictureoffoot','32','nicefoot');
+INSERT INTO post('user_id','post_text','picture','picture_description','picture_like','picture_comment') VALUES 
+('06969','carlook','car.jpeg','pictureofcar','152','nice wheels');
