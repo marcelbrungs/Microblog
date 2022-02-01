@@ -17,3 +17,10 @@ package structure -->
 <context:annotation-config /> <!-- This for the future will allow us to use annotations
 also in classes that we would configure manually -->
 </beans>
+<bean id="dataSource"
+class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+<property name="url" value="jdbc:mysql://localhost:3306/microblog" />
+<property name="username" value="login" />
+<property name="password" value="secret" />
+</bean>
