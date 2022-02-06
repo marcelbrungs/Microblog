@@ -16,4 +16,7 @@ annotated classes including package. WARNING!!! each project can of course have 
 package structure -->
 <context:annotation-config /> <!-- This for the future will allow us to use annotations
 also in classes that we would configure manually -->
+ <bean id="FollowerDao" class="WWSIS.Microblog.dao.impl.FollowerDaoImpl"/>
+ <bean id="UserDao" class="WWSIS.Microblog.dao.impl.UserDaoImpl"/>
+ <bean id="PostDao"class="WWSIS.Microblog.dao.impl.PostDaoImpl"/>
 </beans>
