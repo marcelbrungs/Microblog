@@ -9,6 +9,15 @@ public interface MicroblogService {
 	String registerUser(String username, String plainTextPassword);
 	List<String> searchForName(String username);
 	String createPost(String username, Post post);
+	public class PostDaoImpl implements PostDao {
+    	public String getUserTimeline(int uid) {
+        return null;}
+    	public String getMainTimeline(int uid) {
+        return null;}
+    	public String getAllMessages() {
+        return null;}
+    	public void addMessage(int uid) {}
+}
 	List<UserPostDto> getFollowersPostsForUser(String username, Date createdAfter);
 	Page<Post> getAllPostsForUsers(List<String> usernames, int pageNumber);
 	Page<Post> getAllFollowersPostsForUser(String username, int pageNumber);
