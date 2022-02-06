@@ -22,11 +22,11 @@ public class TestFollowerDao {
 @Autowired
 FollowerDao followerDAO;
 @Autowired
+	
 UserDao userDAO;
-//followee
 User newFollowee;
-//follower
 User newFollower;
+	
 @Before public void setUp(setUp followerDAO) {
 	this.followerDAO = userDAO
 }
