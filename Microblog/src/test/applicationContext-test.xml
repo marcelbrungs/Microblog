@@ -1,0 +1,40 @@
+<?xmlversion="1.0"encoding="UTF-8"?>
+<beansxmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context"xsi:schemaLocation="
+                                                                                 
+http://www.springframework.org/schema/mvchttp://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/beanshttp://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/contexthttp://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+ <context:component-scanbase-package="pl.microblog"/><!--We want to automatically
+support all annotated classes in this package. ATTENTION!!! each project can of course have adifferent package structure-->
+  <context:annotation-config/><!-- This for the futurewill allow us to use annotationsalso in classes that we would configure manually -->
+  
+  <beanid="dataSource"
+  class="org.springframework.jdbc.datasource.DriverManagerDataSource"><propertyname="driverClassName"value="org.hsqldb.jdbcDriver"/>
+  <propertyname="url"value="jdbc:hsqldb:hsql://localhost/testdb"/>
+    
+    <propertyname="username"value="sa"/><propertyname="password"value=""/>
+ </bean>
+  
+  <beanid="entityManagerFactoryBean"class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"><propertyname="dataSource"ref="dataSource"/>
+    <propertyname="packagesToScan"value="WWSIS.Microblog.model"/><propertyname="jpaVendorAdapter">
+    <bean
+          
+class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"><propertyname="showSql"value="true"/>
+<propertyname="databasePlatform"value="org.hibernate.dialect.HSQLDialect"/>
+</bean>
+    
+    </property><propertyname="jpaProperties"><props>
+    
+  <propkey="hibernate.hbm2ddl.auto">validate</prop></props>
+    </property></bean>
+  
+  <beanclass="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/><bean
+  class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/><beanid="transactionManager"
+  class="org.springframework.orm.jpa.JpaTransactionManager"><propertyname="entityManagerFactory"ref="entityManagerFactoryBean"/>
+  </bean><beanid="FollowerDao"class="WWSIS.Microblog.dao.impl.FollowerDaoImpl"/><beanid="UzytkownikDao"class="WWSIS.Microblog.dao.impl.UserDaoImpl"/>
+  <beanid="WpisDao"class="WWSIS.Microblog.dao.impl.PostDaoImpl"/></beans>
