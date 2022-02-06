@@ -42,7 +42,7 @@ public String createPost(String username, Post post) {
 	
 	public List<PostDao> getFollowersPostsForUser(String username, Date createdAfter) {
 		List<String> following = getFollowingList(username);
-		// get posts for yourself as well
+		
 		following.add(username);
 		
 		List<Post> posts = null;
@@ -66,7 +66,7 @@ public String createPost(String username, Post post) {
 	
 	public Page<Post> getAllFollowersPostsForUser(String username, int pageNumber) {
 		List<String> following = getFollowingList(username);
-		// get posts for yourself as well
+		
 		following.add(username);
 		return getAllPostsForUsers(following, pageNumber);
 	}
@@ -84,8 +84,8 @@ public String createPost(String username, Post post) {
 		try {
 			followerRepository.save(follower);
 		} catch(RuntimeException ex) {
-			logger.error("RuntimeException when the user \"" + followerUsername + "\" tried to follow \"" + targetUsername + "\".", ex);
-			errorMessage = "The user \"" + followerUsername + "\" could not follow \"" + targetUsername + "\".  An unexpected problem occurred when trying to save the data.";			
+			logger.error("Run time Exception when the user \"" + followerUsername + "\" tried to follow \"" + targetUsername + "\".", ex);
+			errorMessage = "The user \"" + followerUsername + "\" could not follow \"" + targetUsername + "\".  problem occurred when trying to save the data.";			
 		}
 		return errorMessage;
 	}
@@ -96,7 +96,7 @@ public String createPost(String username, Post post) {
 		try {
 			followingList = followerRepository.findByFollowerUsername(username);
 		} catch(RuntimeException ex) {
-			logger.error("RuntimeException when finding list of this users followers: " + username + ".", ex);
+			logger.error("Run time Exception when finding list of this users followers: " + username + ".", ex);
 		}
 		return followingList;
 		}
